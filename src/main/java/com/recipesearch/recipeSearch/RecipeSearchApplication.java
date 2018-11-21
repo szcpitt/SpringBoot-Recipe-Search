@@ -1,12 +1,12 @@
-package com.recipesearch.reciepesearch;
+package com.recipesearch.recipeSearch;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ReciepesearchApplication {
+public class RecipeSearchApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(ReciepesearchApplication.class, args);
+        SpringApplication.run(RecipeSearchApplication.class, args);
     }
 }
