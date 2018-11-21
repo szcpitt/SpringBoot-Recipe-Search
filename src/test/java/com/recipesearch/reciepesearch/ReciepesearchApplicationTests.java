@@ -1,5 +1,7 @@
 package com.recipesearch.reciepesearch;
 
+import com.recipesearch.reciepesearch.Controller.DAO.InsertDataDao;
+import com.recipesearch.reciepesearch.Controller.DAO.impl.InsertDataDaoImpl;
 import com.recipesearch.reciepesearch.Model.Recipe;
 import com.recipesearch.reciepesearch.Repository.RecipeRepo;
 import org.junit.Test;
@@ -31,4 +33,9 @@ public class ReciepesearchApplicationTests {
 
     }
 
+    @Test
+    public void testDatabase(){
+        InsertDataDaoImpl i = new InsertDataDaoImpl();
+        i.openConnection();
+    }
 }
