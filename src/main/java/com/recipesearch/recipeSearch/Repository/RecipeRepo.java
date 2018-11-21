@@ -8,5 +8,7 @@ import java.util.List;
 public interface RecipeRepo extends MongoRepository<Recipe,Integer> {
     Recipe findByName(String name);
 
-    List<Recipe> findByNameContaining(String name);
+    // TODO: Not Work!
+    List<Recipe> findRecipesByNameContaining(String name);
+
 }

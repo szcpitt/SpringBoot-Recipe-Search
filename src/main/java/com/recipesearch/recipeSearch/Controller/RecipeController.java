@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -26,7 +27,13 @@ public class RecipeController {
 
     @GetMapping("/getRecipeList")
     public List<Recipe> getRecipeList(@RequestParam(value="name") String name){
-        return recipeService.getRecipeList(name);
+        String[] queries=name.split(" ");
+        List<Recipe> recipes;
+        if(queries.length==1){
+            recipes=recipeService.getOneWord(name);
+        }else{
+            recipes=recipeService.getWords(queries);
+        }
+        return recipes;
     }
-
 }
