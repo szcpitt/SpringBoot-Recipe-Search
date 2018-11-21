@@ -5,7 +5,7 @@ import com.mongodb.MongoClient;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import com.mongodb.util.JSON;
-import com.recipesearch.reciepesearch.Controller.DAO.InsertDataDao;
+import com.recipesearch.reciepesearch.Controller.DAO.InsertDataDAO;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -17,7 +17,7 @@ import java.util.List;
  * user: Carl.Wu
  * date: 11/21/2018
  */
-public class InsertDataDaoImpl implements InsertDataDao {
+public class InsertDataDAOImpl implements InsertDataDAO {
 
     @Override
     public void openConnection() {

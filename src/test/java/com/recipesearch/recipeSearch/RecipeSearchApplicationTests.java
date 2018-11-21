@@ -1,8 +1,7 @@
 package com.recipesearch.recipeSearch;
 
 <<<<<<< HEAD:src/test/java/com/recipesearch/reciepesearch/ReciepesearchApplicationTests.java
-import com.recipesearch.reciepesearch.Controller.DAO.InsertDataDao;
-import com.recipesearch.reciepesearch.Controller.DAO.impl.InsertDataDaoImpl;
+import com.recipesearch.reciepesearch.Controller.DAO.impl.InsertDataDAOImpl;
 import com.recipesearch.reciepesearch.Model.Recipe;
 import com.recipesearch.reciepesearch.Repository.RecipeRepo;
 =======
@@ -38,7 +37,7 @@ public class RecipeSearchApplicationTests {
 
     @Test
     public void testDatabase(){
-        InsertDataDaoImpl i = new InsertDataDaoImpl();
+        InsertDataDAOImpl i = new InsertDataDAOImpl();
         i.openConnection();
     }
 }
