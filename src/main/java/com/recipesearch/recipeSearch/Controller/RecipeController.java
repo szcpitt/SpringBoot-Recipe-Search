@@ -1,8 +1,8 @@
-package com.recipesearch.reciepesearch.Controller;
+package com.recipesearch.recipeSearch.Controller;
 
-import com.recipesearch.reciepesearch.Model.Recipe;
-import com.recipesearch.reciepesearch.Service.RecipeService;
-import com.recipesearch.reciepesearch.Utils.Cons;
+import com.recipesearch.recipeSearch.Model.Recipe;
+import com.recipesearch.recipeSearch.Service.RecipeService;
+import com.recipesearch.recipeSearch.Utils.Cons;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

@@ -1,11 +1,8 @@
-package com.recipesearch.reciepesearch.Repository;
+package com.recipesearch.recipeSearch.Repository;
 
-import com.recipesearch.reciepesearch.Model.Recipe;
+import com.recipesearch.recipeSearch.Model.Recipe;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
-import java.util.List;
-
 public interface RecipeRepo extends MongoRepository<Recipe,Integer> {
-
     Recipe findByName(String name);
 }

@@ -1,4 +1,4 @@
-package com.recipesearch.reciepesearch.Utils;
+package com.recipesearch.recipeSearch.Utils;
 
 public class Cons {
 
