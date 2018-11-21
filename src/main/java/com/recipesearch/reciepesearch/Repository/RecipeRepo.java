@@ -5,7 +5,7 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 
 import java.util.List;
 
-public interface RecipeRepo extends MongoRepository<Recipe,Long> {
+public interface RecipeRepo extends MongoRepository<Recipe,Integer> {
 
-    List<Recipe> findByName(String name);
+    Recipe findByName(String name);
 }

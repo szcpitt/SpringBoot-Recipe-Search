@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
 
 @RestController
 @RequestMapping(Cons.ROOT_PATH+"/recipe")
@@ -19,7 +18,7 @@ public class RecipeController {
     RecipeService recipeService;
 
     @GetMapping("/getRecipe")
-    public List<Recipe> getRecipe(@RequestParam(value="name") String name){
+    public Recipe getRecipe(@RequestParam(value="name") String name){
         return recipeService.getOne(name);
     }
 }

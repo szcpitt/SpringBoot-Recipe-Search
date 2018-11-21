@@ -13,7 +13,7 @@ public class RecipeService {
     @Autowired
     RecipeRepo recipeRepo;
 
-    public List<Recipe> getOne(String name){
+    public Recipe getOne(String name){
         return recipeRepo.findByName(name);
     }
 }
