@@ -27,4 +27,8 @@ public class RecipeService {
     public List<Recipe> getWords(String[] words){
         return new ArrayList<>();
     }
+
+    public List<Recipe> retrieveQuery(){
+        return null;
+    }
 }
