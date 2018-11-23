@@ -14,7 +14,7 @@ public class RecipeService {
     @Autowired
     RecipeRepo recipeRepo;
 
-    public Recipe getOne(String name){
+    public List<Recipe> getOne(String name){
         return recipeRepo.findByName(name);
     }
 

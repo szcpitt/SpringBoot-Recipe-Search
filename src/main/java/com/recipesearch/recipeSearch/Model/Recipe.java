@@ -10,6 +10,8 @@ public class Recipe {
     private long id;
     @Field("NAME")
     private String name;
+    @Field("photo")
+    private String photo;
     @Field("TotalTime")
     private String totalTime;
     @Field("Ingredients")
@@ -30,7 +32,7 @@ public class Recipe {
     public Recipe() {
     }
 
-    public Recipe(long id, String name, String totalTime, String[] ingredients, double totalCal, double fat_kcal, double enerc_fat, String source_url, String course, String cuisine) {
+    public Recipe(long id, String name, String totalTime, String[] ingredients, double totalCal, double fat_kcal, double enerc_fat, String source_url, String course, String cuisine, String photo) {
         this.id = id;
         this.name = name;
         this.totalTime = totalTime;
@@ -41,6 +43,7 @@ public class Recipe {
         this.source_url = source_url;
         this.course = course;
         this.cuisine = cuisine;
+        this.photo=photo;
     }
 
     public long getId() {
@@ -121,5 +124,13 @@ public class Recipe {
 
     public void setCuisine(String cuisine) {
         this.cuisine = cuisine;
+    }
+
+    public String getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(String photo) {
+        this.photo = photo;
     }
 }

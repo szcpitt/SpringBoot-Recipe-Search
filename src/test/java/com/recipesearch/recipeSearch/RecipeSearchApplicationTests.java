@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.List;
+
 import static org.hibernate.validator.internal.util.Contracts.assertNotNull;
 import static org.junit.Assert.assertNull;
 
@@ -25,7 +27,7 @@ public class RecipeSearchApplicationTests {
 
     @Test
     public void testData(){
-        Recipe recipe=recipeRepo.findByName("Mushroom and Roasted Garlic Risotto");
+        List<Recipe> recipe=recipeRepo.findByName("Mushroom and Roasted Garlic Risotto");
         assertNotNull(recipe);
 
     }

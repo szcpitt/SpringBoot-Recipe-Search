@@ -21,7 +21,7 @@ public class RecipeController {
     RecipeService recipeService;
 
     @GetMapping("/getRecipe")
-    public Recipe getRecipe(@RequestParam(value="name") String name){
+    public List<Recipe> getRecipe(@RequestParam(value="name") String name){
         return recipeService.getOne(name);
     }
 
