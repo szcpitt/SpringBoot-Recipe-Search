@@ -31,7 +31,7 @@ public class InsertDataDAOImpl implements InsertDataDAO {
 
             MongoCollection<DBObject> collection = mongoDatabase.getCollection("recipe", DBObject.class);
 
-            File file = new File("C:\\Users\\YUW121\\Desktop\\ir\\project\\Android-Recipe-Search-Engine\\app\\data\\data.json");
+            File file = new File("C:\\Users\\YUW121\\Desktop\\ir\\project\\SpringBoot-Recipe-Search\\data\\data2.json");
             BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
             StringBuilder sb = new StringBuilder();
             String temp;

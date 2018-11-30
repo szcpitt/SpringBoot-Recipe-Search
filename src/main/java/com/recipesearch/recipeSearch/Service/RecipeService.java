@@ -20,6 +20,7 @@ public class RecipeService {
 
     // TODO: Not Implemented!
     public List<Recipe> getOneWord(String name) {
+
         return recipeRepo.findRecipesByNameContaining(name);
     }
 
@@ -28,6 +29,10 @@ public class RecipeService {
         return new ArrayList<>();
     }
 
+    // find all documents
+    public List<Recipe> getAll(){
+        return recipeRepo.findAll();
+    }
     public List<Recipe> retrieveQuery(){
         return null;
     }

@@ -7,6 +7,9 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.List;
@@ -21,6 +24,8 @@ public class RecipeSearchApplicationTests {
     @Autowired
     RecipeRepo recipeRepo;
 
+    @Autowired
+    MongoTemplate mongoTemplate;
     @Test
     public void contextLoads() {
     }
@@ -32,6 +37,13 @@ public class RecipeSearchApplicationTests {
 
     }
 
+    @Test
+    public void testNullValue(){
+        Query query = new Query();
+        query.addCriteria(Criteria.where("id").is(11));
+        List<Recipe> list = mongoTemplate.find(query, Recipe.class);
+
+    }
     @Test
     public void testDatabase(){
         InsertDataDAOImpl i = new InsertDataDAOImpl();
