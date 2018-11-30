@@ -25,7 +25,8 @@ public class RecipeService {
 
     // TODO: Need score rank!
     public List<Recipe> getWords(String[] words){
-        return new ArrayList<>();
+        List<Recipe> allRecipe = recipeRepo.findAll();
+        return allRecipe.subList(51,62);
     }
 
     public List<Recipe> retrieveQuery(){
