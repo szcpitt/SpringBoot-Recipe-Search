@@ -1,6 +1,7 @@
 package com.recipesearch.recipeSearch.Controller;
 
 import com.recipesearch.recipeSearch.Model.Recipe;
+import com.recipesearch.recipeSearch.Service.CacheService;
 import com.recipesearch.recipeSearch.Service.RecipeService;
 import com.recipesearch.recipeSearch.Utils.Cons;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,8 @@ public class RecipeController {
 
     @Autowired
     RecipeService recipeService;
+    @Autowired
+    CacheService cacheService;
 
     @GetMapping("/getRecipe")
     public List<Recipe> getRecipe(@RequestParam(value="name") String name){
@@ -26,16 +29,17 @@ public class RecipeController {
     }
 
     @GetMapping("/getRecipeList")
-    public List<Recipe> getRecipeList(@RequestParam(value="name") String name){
+    public List<Recipe> getRecipeList(@RequestParam(value="name") String name) throws Exception{
         String[] queries=name.split(" ");
         List<Recipe> recipes;
         if(queries.length==1){
             recipes=recipeService.getOneWord(name);
         }else{
             recipes=recipeService.getWords(queries);
+            cacheService.setCacheService();
+            System.out.println(cacheService.isStopword("able"));
         }
         return recipes;
     }
-
 
 }
