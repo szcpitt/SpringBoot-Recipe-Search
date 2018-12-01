@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 
 @RestController
@@ -24,22 +26,24 @@ public class RecipeController {
     CacheService cacheService;
 
     @GetMapping("/getRecipe")
-    public List<Recipe> getRecipe(@RequestParam(value="name") String name){
-        return recipeService.getOne(name);
+    public Map<String,List<Recipe>> getRecipe(@RequestParam(value="name") String name){
+        HashMap<String, List<Recipe>> map = new HashMap<>();
+        map.put("Search",recipeService.getOne(name));
+        return map;
     }
 
     @GetMapping("/getRecipeList")
-    public List<Recipe> getRecipeList(@RequestParam(value="name") String name) throws Exception{
+    public Map<String,List<Recipe>> getRecipeList(@RequestParam(value="name") String name) throws Exception{
         String[] queries=name.split(" ");
         List<Recipe> recipes;
         if(queries.length==1){
             recipes=recipeService.getOneWord(name);
         }else{
             recipes=recipeService.getWords(queries);
-            cacheService.setCacheService();
-            System.out.println(cacheService.isStopword("able"));
         }
-        return recipes;
+        HashMap<String,List<Recipe>> map = new HashMap<>();
+        map.put("Search",recipes);
+        return map;
     }
 
 }

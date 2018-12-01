@@ -24,17 +24,14 @@ public class CacheService {
     private Map<String,Map<Integer,Integer>> documentIndex;
     private Set<String> stopwords;
 
-    private FileInputStream wordStream;
-    private BufferedReader wordReader;
 
+    public void setCacheService() {
 
-    public void setCacheService() throws IOException{
-        List<Recipe> recipes = recipeRepo.findAll();
-        String str = "";
-        Map<Integer,String> content = new HashMap<>();
+    }
 
-        wordStream = new FileInputStream("src/main/resources/stopword.txt");
-        wordReader = new BufferedReader(new InputStreamReader(wordStream));
+    public void saveStopWord() throws IOException{
+        FileInputStream wordStream = new FileInputStream("src/main/resources/stopword.txt");
+        BufferedReader wordReader = new BufferedReader(new InputStreamReader(wordStream));
         stopwords = new HashSet<>();
         String line;
         while ((line= wordReader.readLine()) != null){
