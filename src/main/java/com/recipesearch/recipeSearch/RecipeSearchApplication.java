@@ -19,10 +19,6 @@ public class RecipeSearchApplication {
 
     @PostConstruct
     public void startBuildCache(){
-        try {
             cacheService.setCacheService();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 }

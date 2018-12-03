@@ -1,32 +1,38 @@
 package com.recipesearch.recipeSearch.Utils;
 
-import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.util.HashSet;
+import java.util.Set;
 
 public class StopWordRemover {
-    private FileInputStream wordStream;
-    private BufferedReader wordReader;
-    private HashSet<String> stopword;
+    // Essential private methods or variables can be added.
+    private BufferedReader bufferedReader;
+    private Set<String> stopWord = new HashSet<>();
+    // YOU SHOULD IMPLEMENT THIS METHOD.
+    public StopWordRemover( ) {
+        // Load and store the stop words from the fileinputstream with appropriate data structure.
+        // NT: address of stopword.txt is Path.StopwordDir
+        File file = new File("src/main/resources/stopword.txt");
+        try {
+            this.bufferedReader = new BufferedReader(new FileReader(file));
+            String temp = null;
+            while((temp = bufferedReader.readLine())!= null){
+                stopWord.add(temp);
+            }
 
-    public StopWordRemover( ) throws IOException{
-
-        wordStream = new FileInputStream("src/main/resources/stopword.txt");
-        wordReader = new BufferedReader(new InputStreamReader(wordStream));
-        stopword=new HashSet<String>();
-        String line;
-        while ((line= wordReader.readLine()) != null){
-            stopword.add(line);//add stopword
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-        wordReader.close();
-        wordStream.close();
     }
 
-    public boolean isStopword(String word ) {
-        if(stopword.contains(word))
+    // YOU SHOULD IMPLEMENT THIS METHOD.
+    public boolean isStopword( char[] word ) {
+        // Return true if the input word is a stopword, or false if not.
+        if(stopWord.contains(new String(word))){
             return true;
+        }
         return false;
     }
 }

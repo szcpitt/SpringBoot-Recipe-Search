@@ -7,7 +7,7 @@ import org.springframework.data.mongodb.core.mapping.Field;
 public class Recipe {
 
     @Field("ID")
-    private long id;
+    private int id;
     @Field("NAME")
     private String name;
     @Field("photo")
@@ -32,7 +32,7 @@ public class Recipe {
     public Recipe() {
     }
 
-    public Recipe(long id, String name, String totalTime, String[] ingredients, double totalCal, double fat_kcal, double enerc_fat, String source_url, String course, String cuisine, String photo) {
+    public Recipe(int id, String name, String totalTime, String[] ingredients, double totalCal, double fat_kcal, double enerc_fat, String source_url, String course, String cuisine, String photo) {
         this.id = id;
         this.name = name;
         this.totalTime = totalTime;
@@ -46,11 +46,11 @@ public class Recipe {
         this.photo=photo;
     }
 
-    public long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
