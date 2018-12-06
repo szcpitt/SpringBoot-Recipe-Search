@@ -11,15 +11,15 @@ import java.util.Optional;
 
 @Repository
 public interface RecipeRepo extends MongoRepository<Recipe,Integer> {
-    List<Recipe> findByName(String name);
+    List<Recipe> findByNameIgnoreCase(String name);
 
-    List<Recipe> findRecipesByNameContaining(String name);
+    List<Recipe> findRecipesByNameContainingIgnoreCase(String name);
 
-    List<Recipe> findRecipeByIngredientsContains(String ingredients);
+    List<Recipe> findRecipeByIngredientsContainsIgnoreCase(String ingredients);
 
     List<Recipe> findAll();
 //    Optional<Recipe> findById(Integer id);
 
-    Recipe findById(int id);
+    Recipe findRecipeById(int id);
 
 }

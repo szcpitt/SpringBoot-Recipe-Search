@@ -39,7 +39,7 @@ public class RecipeController {
         if(queries.length==1){
             recipes=recipeService.getOneWord(name);
         }else{
-            recipes=recipeService.getWords(queries);
+            recipes=recipeService.getWords(name+" ");   // in case of OutOfIndex, problem of WordTokenizer;
         }
         HashMap<String,List<Recipe>> map = new HashMap<>();
         map.put("Search",recipes);

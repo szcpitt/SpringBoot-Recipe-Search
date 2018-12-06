@@ -32,7 +32,7 @@ public class RecipeSearchApplicationTests {
 
     @Test
     public void testData(){
-        List<Recipe> recipe=recipeRepo.findByName("Mushroom and Roasted Garlic Risotto");
+        List<Recipe> recipe=recipeRepo.findByNameIgnoreCase("Mushroom and Roasted Garlic Risotto");
         assertNotNull(recipe);
 
     }
