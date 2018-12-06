@@ -67,11 +67,11 @@ public class CacheService {
             docIDDocLengthMap.put(recipe.getId(),temp);
             colLength += temp;
             count++;
-            if(count % 1000 == 0){
-                System.out.println("finish "+ count + " docs." );
-            }
+//            if(count % 1000 == 0){
+//                System.out.println("finish "+ count + " docs." );
+//            }
         }
-        System.out.println("totally document count: "+count);
+//        System.out.println("totally document count: "+count);
     }
 
     public Map<String, Map<Integer, Integer>> getTokenDocIDDocFreMap() {
