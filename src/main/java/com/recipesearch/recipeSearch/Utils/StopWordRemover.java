@@ -12,9 +12,12 @@ public class StopWordRemover {
     public StopWordRemover( ) {
         // Load and store the stop words from the fileinputstream with appropriate data structure.
         // NT: address of stopword.txt is Path.StopwordDir
-        File file = new File("src/main/resources/stopword.txt");
+        //File file = new File("src/main/resources/stopword.txt");
+        InputStream file = this.getClass().getResourceAsStream("/stopword.txt");
+
         try {
-            this.bufferedReader = new BufferedReader(new FileReader(file));
+            //this.bufferedReader = new BufferedReader(new FileReader(file));
+            this.bufferedReader = new BufferedReader(new InputStreamReader(file, "UTF-8"));
             String temp = null;
             while((temp = bufferedReader.readLine())!= null){
                 stopWord.add(temp);
