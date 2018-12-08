@@ -46,4 +46,14 @@ public class RecipeController {
         return map;
     }
 
+    @GetMapping("/getCal")
+    public  Map<String, List<Recipe>> getCal(@RequestParam(value="name") String name){
+        double total_cal = Double.parseDouble(name);
+
+        List<Recipe> recipes = recipeService.getCal(total_cal);
+        HashMap<String,List<Recipe>> map = new HashMap<>();
+        map.put("Search",recipes);
+        return map;
+
+    }
 }
