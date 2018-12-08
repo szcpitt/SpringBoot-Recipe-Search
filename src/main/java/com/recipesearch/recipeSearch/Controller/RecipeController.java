@@ -36,24 +36,22 @@ public class RecipeController {
     public Map<String,List<Recipe>> getRecipeList(@RequestParam(value="name") String name) throws Exception{
         String[] queries=name.split(" ");
         List<Recipe> recipes;
-        if(queries.length==1){
-            recipes=recipeService.getOneWord(name);
-        }else{
-            recipes=recipeService.getWords(name+" ");   // in case of OutOfIndex, problem of WordTokenizer;
+        if(name.charAt(0) == ':' || name.charAt(0) == '：'){
+            name = name.substring(1,name.length());
+            double total_cal = Double.parseDouble(name);
+
+            recipes = recipeService.getCal(total_cal);
+        }
+        else{
+            if(queries.length==1){
+                recipes=recipeService.getOneWord(name);
+            }else{
+                recipes=recipeService.getWords(name+" ");   // in case of OutOfIndex, problem of WordTokenizer;
+            }
         }
         HashMap<String,List<Recipe>> map = new HashMap<>();
         map.put("Search",recipes);
         return map;
     }
 
-    @GetMapping("/getCal")
-    public  Map<String, List<Recipe>> getCal(@RequestParam(value="name") String name){
-        double total_cal = Double.parseDouble(name);
-
-        List<Recipe> recipes = recipeService.getCal(total_cal);
-        HashMap<String,List<Recipe>> map = new HashMap<>();
-        map.put("Search",recipes);
-        return map;
-
-    }
 }
