@@ -38,9 +38,12 @@ public class RecipeController {
         List<Recipe> recipes;
         if(name.charAt(0) == ':' || name.charAt(0) == '：'){
             name = name.substring(1,name.length());
-            double total_cal = Double.parseDouble(name);
-
-            recipes = recipeService.getCal(total_cal);
+            if(recipeService.isNumeric(name)){
+                double total_cal = Double.parseDouble(name);
+                recipes = recipeService.getCal(total_cal);
+            }
+            else
+                recipes = new ArrayList<>();
         }
         else{
             if(queries.length==1){
